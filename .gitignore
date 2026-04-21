@@ -3,3 +3,5 @@ data/raw
 _pycache_/
 .ipynb_checkpoints/
 .env
+revdet/
+src/db_connection.py
