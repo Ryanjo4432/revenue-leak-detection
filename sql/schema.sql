@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS products (
     product_id                      VARCHAR(50) PRIMARY KEY,
     product_category_name           VARCHAR(100),
     product_category_name_english   VARCHAR(100),
-    product_name_length             INTEGER,
-    product_description_length      INTEGER,
+    product_name_lenght             INTEGER,  
+    product_description_lenght      INTEGER,   
     product_photos_qty              INTEGER,
     product_weight_g                NUMERIC,
     product_length_cm               NUMERIC,
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS products (
     product_width_cm                NUMERIC
 );
 
-CREATE TABLE IF NOT EXISTS order (
+CREATE TABLE IF NOT EXISTS orders (
     order_id                        VARCHAR(50) PRIMARY KEY,
     customer_id                     VARCHAR(50) REFERENCES customers(customer_id),
     order_status                    VARCHAR(30),

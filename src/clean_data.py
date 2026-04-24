@@ -89,9 +89,8 @@ customers.to_csv(CLEAN + "customers.csv", index=False)
 print(f"✅ customers cleaned → {len(customers)} rows")
 
 
-#  REVIEWS 
+# REVIEWS 
 reviews = pd.read_csv(RAW + "olist_order_reviews_dataset.csv")
-
 
 reviews["review_comment_message"].fillna("", inplace=True)
 reviews["review_comment_title"].fillna("", inplace=True)
@@ -99,6 +98,11 @@ reviews["review_comment_title"].fillna("", inplace=True)
 date_cols = ["review_creation_date", "review_answer_timestamp"]
 for col in date_cols:
     reviews[col] = pd.to_datetime(reviews[col], errors="coerce")
+
+#
+before = len(reviews)
+reviews.drop_duplicates(subset=["review_id"], inplace=True)
+print(f"  Reviews: removed {before - len(reviews)} duplicate review_ids")
 
 reviews.to_csv(CLEAN + "reviews.csv", index=False)
 print(f"✅ reviews cleaned → {len(reviews)} rows")
